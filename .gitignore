@@ -28,7 +28,7 @@ bin/
 exception/
 form/
 login/
-message/
+/message/
 thymeleaf-basic/
 typeconverter/
 upload/
