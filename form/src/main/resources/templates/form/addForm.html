@@ -25,17 +25,17 @@
             <!--<input type="text" th:field="${item.itemName}" class="form-control" placeholder="이름을 입력하세요">-->
             <!--id="itemName" 지우면 IDE에서 인식을 잘 못해서 경고창 뜨지만, 동작에는 문제 없음 th:field가 알아서 만들어줌-->
             <!--서버 띄운 후 페이지 소스 보기 하면 id, name 속성 잘 만들어져있다.-->
-            <input type="text" th:field="*{itemName}" class="form-control" placeholder="이름을 입력하세요">
+            <input type="text" id="itemName" th:field="*{itemName}" class="form-control" placeholder="이름을 입력하세요">
         </div>
         <div>
             <label for="price">가격</label>
             <!--<input type="text" id="price" name="price" class="form-control" placeholder="가격을 입력하세요">-->
-            <input type="text" th:field="*{price}" class="form-control" placeholder="가격을 입력하세요">
+            <input type="text" id="price" th:field="*{price}" class="form-control" placeholder="가격을 입력하세요">
         </div>
         <div>
             <label for="quantity">수량</label>
             <!--<input type="text" id="quantity" name="quantity" class="form-control" placeholder="수량을 입력하세요">-->
-            <input type="text" th:field="*{quantity}" class="form-control" placeholder="수량을 입력하세요">
+            <input type="text" id="quantity" th:field="*{quantity}" class="form-control" placeholder="수량을 입력하세요">
         </div>
 
         <hr class="my-4">
@@ -56,6 +56,15 @@
             <div th:each="region : ${regions}" class="form-check form-check-inline">
                 <input type="checkbox" th:field="*{regions}" th:value="${region.key}" class="form-check-input">
                 <label th:for="${#ids.prev('regions')}" th:text="${region.value}" class="form-check-label">서울</label>
+            </div>
+        </div>
+
+        <!-- radio button -->
+        <div>
+            <div>상품 종류</div>
+            <div th:each="type : ${itemTypes}" class="form-check form-check-inline">
+                <input type="radio" th:field="*{itemType}" th:value="${type.name()}" class="form-check-input">
+                <label th:for="${#ids.prev('itemType')}" th:text="${type.description}" class="form-check-label">BOOK</label>
             </div>
         </div>
 
