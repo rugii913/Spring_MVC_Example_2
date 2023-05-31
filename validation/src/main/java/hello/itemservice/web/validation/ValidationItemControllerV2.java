@@ -69,7 +69,7 @@ public class ValidationItemControllerV2 {
         if (item.getPrice() != null && item.getQuantity() != null) {
             int resultPrice = item.getPrice() * item.getQuantity();
             if (resultPrice < 10000) {
-                bindingResult.addError(new ObjectError("item", "상품 이름은 필수입니다."));
+                bindingResult.addError(new ObjectError("item", "가격 * 수량의 합은 10,000원 이상이어야 합니다. 현재 값 = " + resultPrice));
             } //->특정 필드가 아닌 복합적인 오류이므로 키값을 필드 이름이 아닌 "globalError"라는 값으로 넣음
         }
 
