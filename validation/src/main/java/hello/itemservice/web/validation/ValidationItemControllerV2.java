@@ -93,10 +93,9 @@ public class ValidationItemControllerV2 {
     public String addItemV2(@ModelAttribute Item item, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
 
         //검증 로직
-        /*if (!StringUtils.hasText(item.getItemName())) {
+        if (!StringUtils.hasText(item.getItemName())) {
             bindingResult.addError(new FieldError("item", "itemName", item.getItemName(), false, null, null, "상품 이름은 필수입니다."));
-        }*/
-        ValidationUtils.rejectIfEmptyOrWhitespace(bindingResult, "itemName", "required");
+        }
         if (item.getPrice() == null || item.getPrice() < 1000 || item.getPrice() > 1000000) {
             bindingResult.addError(new FieldError("item", "price", item.getPrice(), false, null , null, "가격은 1,000 ~ 1,000,000 까지 허용합니다."));
         }
@@ -171,9 +170,10 @@ public class ValidationItemControllerV2 {
         log.info("target={}", bindingResult.getTarget());
 
         //검증 로직
-        if (!StringUtils.hasText(item.getItemName())) {
+        /*if (!StringUtils.hasText(item.getItemName())) {
             bindingResult.rejectValue("itemName", "required");
-        }
+        }*/
+        ValidationUtils.rejectIfEmptyOrWhitespace(bindingResult, "itemName", "required");
         if (item.getPrice() == null || item.getPrice() < 1000 || item.getPrice() > 1000000) {
             bindingResult.rejectValue("price", "range", new Object[]{1000, 1000000}, null);
         }
