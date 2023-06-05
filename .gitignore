@@ -27,7 +27,7 @@ bin/
 !**/src/test/**/out/
 exception/
 form_complete/
-login/
+login_complete/
 message_complete/
 thymeleaf-basic/
 typeconverter/
