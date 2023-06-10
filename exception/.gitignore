@@ -18,21 +18,13 @@ bin/
 !**/src/test/**/bin/
 
 ### IntelliJ IDEA ###
-*/.idea
+.idea
 *.iws
 *.iml
 *.ipr
-*/out/
+out/
 !**/src/main/**/out/
 !**/src/test/**/out/
-exception_complete/
-form_complete/
-login_complete/
-message_complete/
-thymeleaf-basic/
-typeconverter/
-upload/
-validation_complete/
 
 ### NetBeans ###
 /nbproject/private/
